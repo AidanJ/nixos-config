@@ -29,7 +29,7 @@
 
       efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/EFI";
+        efiSysMountPoint = "/boot/efi";
       };
       timeout = 7;
     };
@@ -60,11 +60,6 @@
       enable = true;
       wlr.enable = true;
     };
-  };
-
-  xserver = {
-    enable = true;
-    videoDrivers = [ "amdgpu" ];
   };
 
   networking = {
