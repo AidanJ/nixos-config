@@ -7,7 +7,7 @@
   ];
 
   environment = {
-    shells = [ pkgs.zsh ];
+    shells = with pkgs; [ zsh fish ];
     systemPackages = with pkgs; [
       curl gcc git coreutils less glib gnutls man-pages
       man-pages-posix unzip neovim zip
@@ -60,6 +60,7 @@
 
   programs = {
     zsh.enable = true;
+    fish.enable = true;
     dconf.enable = true;
   };
 
@@ -114,7 +115,7 @@
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users = {
-    defaultUserShell = pkgs.zsh;
+    defaultUserShell = pkgs.fish;
     users.aidan = {
       # TODO: You can set an initial password for your user.
       # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.

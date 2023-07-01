@@ -16,6 +16,7 @@
     (import ../programs/bat { inherit config; })
     (import ../programs/starship { inherit config; })
     (import ../programs/zsh { inherit config pkgs inputs; })
+    (import ../programs/fish { inherit config; })
     (import ../programs/foot { inherit config; })
     (import ../programs/helix { inherit config; })
     # TODO migrate to swayfx
@@ -99,7 +100,6 @@
       rust-analyzer
       nixpkgs-fmt
       rustfmt
-      fish
     ];
 
     pointerCursor = {
