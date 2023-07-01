@@ -12,7 +12,7 @@
         font-italic= "Iosevka Term Nerd Font:size=14:weight=Bold:slant=italic";
         font-bold-italic= "Iosevka Term Nerd Font:size=14:weight=Heavy:slant=italic";
 
-        # letter-spacing = "-0.5";
+        letter-spacing = "-0.4";
         underline-offset = 1;
         box-drawings-uses-font-glyphs = "no";
         dpi-aware = "no";
