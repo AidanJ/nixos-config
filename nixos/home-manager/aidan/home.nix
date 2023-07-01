@@ -31,7 +31,8 @@
       ];
     })
     (import ../programs/spicetify { inherit config inputs pkgs; })
-    
+
+    (import ../services/mako { inherit config; })
   ];
 
   nixpkgs = {
