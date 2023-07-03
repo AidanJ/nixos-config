@@ -23,7 +23,7 @@
     (import ../programs/sway { inherit config lib pkgs; })
     (import ../programs/waybar { inherit config; })
     (import ../programs/firefox { 
-      inherit config pkgs;
+      inherit config inputs;
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         ublock-origin
         darkreader
@@ -101,12 +101,14 @@
       rust-analyzer
       nixpkgs-fmt
       rustfmt
+      rustc
+      cargo
     ];
 
     pointerCursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
-      size = 24;
+      size = 22;
       gtk.enable = true;
       x11.enable = true;
     };
