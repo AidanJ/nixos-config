@@ -17,7 +17,7 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackages;
-    kernelModules = [ "amdgpu" ];
+    initrd.kernelModules = [ "amdgpu" ];
 
     loader = {
       systemd-boot = {
@@ -49,7 +49,6 @@
       extraPackages = with pkgs; [
         amdvlk
         vaapiVdpau
-        libvdpau-va-gl
       ];
     };
   };
