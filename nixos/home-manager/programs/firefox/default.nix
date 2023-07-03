@@ -1,6 +1,10 @@
-{ config, pkgs, extensions, ... }:
+{ config, inputs, extensions, ... }:
 
+let 
+  firefoxProfile = "main";
+in
 {
+  home.file.".mozilla/firefox/${firefoxProfile}/chrome/firefox-gnome-theme".source = inputs.firefox-gnome-theme;
   programs.firefox = {
     enable = true;
 
@@ -12,15 +16,18 @@
         "general.smoothScroll" = true;
         "general.smoothScroll.mouseWheel.durationMaxMS" = 500;
         "general.smoothScroll.mouseWheel.durationMinMS" = 200;
+
+        # For firefox-gnome-theme
+        "svg.context-properties.content.enabled" = true;
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
 
-      # userChrome = import ./userChrome-css.nix {
-      #   theme = config.colorScheme;
-      # };
-
-      # userContent = import ./userContent-css.nix {
-      #   theme = config.colorScheme;
-      # };
+      userChrome = ''
+        @import "firefox-gnome-theme/userChrome.css";
+      '';
+      userContent = ''
+        @import "firefox-gnome-theme/userContent.css";
+      '';
 
       # https://ffprofile.com
       extraConfig = ''
