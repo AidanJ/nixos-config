@@ -84,6 +84,7 @@
       helix
       playerctl
       zathura
+      anki-bin
       pulsemixer
       ripgrep
       btop
