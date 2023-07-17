@@ -23,6 +23,7 @@
     # TODO migrate to swayfx
     (import ../programs/sway { inherit config lib pkgs; })
     (import ../programs/waybar { inherit config; })
+    # (import ../programs/vscodium { inherit config pkgs pkgs-unstable inputs; })
     (import ../programs/firefox { 
       inherit config inputs;
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
@@ -76,6 +77,7 @@
       package = pkgs.papirus-icon-theme;
     };
   };
+
   home = {
     username = "aidan";
     homeDirectory = "/home/aidan";
@@ -93,9 +95,11 @@
       tofi
       fzf
       swayidle
+      sway-contrib.grimshot
 
       # dev
       clang
+      clang-tools
       lldb
       valgrind
       nil
@@ -118,7 +122,9 @@
     stateVersion = "23.05";
 
     sessionVariables = {
-      MOZ_ENABLE_WAYLAND = 1;
+      # Prefer wayland over Xwayland when possible
+      NIXOS_OZONE_WL = "1";
+      MOZ_ENABLE_WAYLAND = "1";
     };
   };
 

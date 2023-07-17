@@ -15,6 +15,7 @@
 
     nur.url = "github:nix-community/NUR";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
     # Zsh related
     zsh-completions = {
