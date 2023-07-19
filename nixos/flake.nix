@@ -102,7 +102,7 @@
             # > Our main home-manager configuration file <
             ./home-manager/aidan/home.nix
           ];
-	  extraSpecialArgs = { inherit pkgs-unstable; };
+      	  extraSpecialArgs = { inherit pkgs-unstable; };
         };
       };
     };
