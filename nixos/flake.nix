@@ -9,6 +9,8 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -89,7 +91,13 @@
             ./nixos/desktop/configuration.nix
           ];
         };
-        # TODO add laptop configuration
+        laptop = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            # > Our main nixos configuration file <
+            ./nixos/laptop/configuration.nix
+          ];
+        };
       };
 
       # Standalone home-manager configuration entrypoint
