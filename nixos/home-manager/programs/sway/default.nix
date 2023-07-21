@@ -1,6 +1,6 @@
 { config, lib, pkgs, ...}:
 let
- menu = "tofi-drun | xargs swaymsg exec --";
+ menu = "tofi-run | xargs swaymsg exec --";
  term = "footclient";
 in
 {
@@ -8,9 +8,9 @@ in
     enable = true;
     config = {
       startup = [
-	{ command = "foot -s"; }
+      	{ command = "foot -s"; }
         { command = "wlsunset -o HDMI-A-1 -g 0.8 -s 23:30"; }
-	{ command = "waybar"; }
+      	{ command = "waybar"; }
         # exec gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Classic'
         # exec gsettings set org.gnome.desktop.interface cursor-size 24
       ];
@@ -22,13 +22,14 @@ in
           "${modifier}+w" = "kill";
           "${modifier}+d" = "exec ${menu}";
           "${modifier}+Shift+c" = "reload";
+          "${modifier}+Shift+s" = "exec grimshot copy output --notify --cursor";
 
           "Mod1+m" = "exec playerctl --player=spotify play-pause";
           "Mod1+n" = "exec playerctl --player=spotify next";
           "Mod1+p" = "exec playerctl --player=spotify previous";
 
-          "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
-          "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";
+          "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+          "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
 
           "${modifier}+h" = "focus left";
           "${modifier}+j" = "focus down";
@@ -112,13 +113,5 @@ in
     # seat seat0 xcursor_theme Bibata-Modern-Classic 24
 
     wrapperFeatures.gtk = true;
-  };
-
-  services.swayidle = {
-    enable = true;
-    events = [
-      { event = "before-sleep"; command = "${pkgs.systemd}/bin/loginctl lock-session"; }
-      { event = "lock"; command = "${pkgs.swaylock}/bin/swaylock -f -c 000000"; }
-    ];
   };
 }
