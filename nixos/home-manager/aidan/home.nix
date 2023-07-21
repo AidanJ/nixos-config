@@ -18,6 +18,7 @@
     (import ../programs/zsh { inherit config pkgs inputs; })
     (import ../programs/fish { inherit config; })
     (import ../programs/foot { inherit config; })
+    (import ../programs/wezterm { inherit config; })
     (import ../programs/helix { inherit config; })
     (import ../programs/zathura { inherit config; })
     # TODO migrate to swayfx
@@ -30,6 +31,7 @@
         ublock-origin
         darkreader
         firefox-color
+        vencord-web
       ];
     })
     (import ../programs/spicetify { inherit config inputs pkgs; })
@@ -95,6 +97,7 @@
       tofi
       fzf
       swayidle
+      pkgs-unstable.vscodium
       sway-contrib.grimshot
 
       # dev
@@ -130,6 +133,7 @@
 
   xdg = {
     enable = true;
+    mime.enable = true;
 
     userDirs = {
       enable = true;
@@ -149,6 +153,6 @@
   };
 
   # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
+  # systemd.user.startServices = "sd-switch";
 
 }
