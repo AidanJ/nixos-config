@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ...}:
+{ config, lib, pkgs, pkgs-unstable, ...}:
 let
  menu = "tofi-run | xargs swaymsg exec --";
  term = "footclient";
@@ -6,6 +6,7 @@ in
 {
   wayland.windowManager.sway = {
     enable = true;
+    package = pkgs-unstable.swayfx;
     config = {
       startup = [
       	{ command = "foot -s"; }
@@ -109,6 +110,10 @@ in
       client.focused #000000 #C0CAF5 #FFFFFF
       client.focused_inactive #000000 #414868 #FFFFFF
       client.unfocused #414868 #414868 #FFFFFF
+
+      shadows enable
+      shadow_blur_radius 5
+      corner_radius 5
     '';
     # seat seat0 xcursor_theme Bibata-Modern-Classic 24
 
