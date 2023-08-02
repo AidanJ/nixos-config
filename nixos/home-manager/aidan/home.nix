@@ -22,7 +22,7 @@
     (import ../programs/helix { inherit config; })
     (import ../programs/zathura { inherit config; })
     # TODO migrate to swayfx
-    (import ../programs/sway { inherit config lib pkgs; })
+    (import ../programs/sway { inherit config lib pkgs pkgs-unstable; })
     (import ../programs/waybar { inherit config; })
     # (import ../programs/vscodium { inherit config pkgs pkgs-unstable inputs; })
     (import ../programs/firefox { 
@@ -89,6 +89,7 @@
       helix
       playerctl
       anki-bin
+      webcord-vencord
       pulsemixer
       ripgrep
       btop
