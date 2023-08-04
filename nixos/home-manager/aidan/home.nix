@@ -90,6 +90,7 @@
       playerctl
       anki-bin
       webcord-vencord
+      pkgs-unstable.logseq
       pulsemixer
       ripgrep
       btop
