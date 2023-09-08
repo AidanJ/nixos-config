@@ -95,7 +95,7 @@ in
       bars = [];
 
       gaps = {
-        inner = 8;
+        inner = 0;
         outer = 8;
       };
 

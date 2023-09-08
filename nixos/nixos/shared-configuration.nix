@@ -25,6 +25,7 @@
       noto-fonts
       noto-fonts-cjk
       inter
+      iosevka
       dejavu_fonts
       noto-fonts-emoji-blob-bin
       liberation_ttf

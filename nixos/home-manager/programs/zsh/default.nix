@@ -29,16 +29,16 @@
     plugins = [
       {
         name = "completions";
-	src = inputs.zsh-completions;
+      	src = inputs.zsh-completions;
       }
       {
         name = "fzf-tab";
-	src = inputs.fzf-tab;
+      	src = inputs.fzf-tab;
       }
       {
         name = "syntax-highlighting";
-	src = inputs.zsh-syntax-highlighting;
-	file = "zsh-syntax-highlighting.zsh";
+      	src = inputs.zsh-syntax-highlighting;
+      	file = "zsh-syntax-highlighting.zsh";
       }
     ];
 

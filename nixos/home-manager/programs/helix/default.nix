@@ -3,6 +3,10 @@
   programs.helix = {
     enable = true;
     
+    # language-server.clangd = {
+    #   args = [ "--compile-commands-dir=compile_commands_directory" ];
+    # };
+
     settings = {
       theme = "darcula-solid";
 
@@ -12,7 +16,7 @@
         cursorline = true;
         bufferline = "multiple";
         idle-timeout = 0;
-      # lsp.display-inlay-hints = true
+        # lsp.display-inlay-hints = true
         cursor-shape = {
           insert = "bar";
           normal = "block";
@@ -42,6 +46,17 @@
         X = "extend_line_above";
         "0" = "goto_line_start";
         "^" = "goto_first_nonwhitespace";
+      };
+    };
+
+    languages = {
+      language-server = {
+        clangd = {
+          clangd.fallbackFlags = [ "-std=c++20" ];
+        };
+        rust-analyzer = {
+          config.check.command = "clippy";
+        };
       };
     };
   };

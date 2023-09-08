@@ -14,12 +14,17 @@
     # ./nvim.nix
     (import ../programs/exa { inherit config; })
     (import ../programs/bat { inherit config; })
+    (import ../programs/tmux { inherit config pkgs-unstable; })
     (import ../programs/starship { inherit config; })
     (import ../programs/zsh { inherit config pkgs inputs; })
+    (import ../programs/direnv { inherit config; })
     (import ../programs/fish { inherit config; })
     (import ../programs/foot { inherit config; })
+    (import ../programs/kitty { inherit config pkgs; })
     (import ../programs/wezterm { inherit config; })
     (import ../programs/helix { inherit config; })
+    # (import ../programs/emacs { inherit config pkgs inputs; })
+    (import ../programs/neovim { inherit config pkgs; })
     (import ../programs/zathura { inherit config; })
     # TODO migrate to swayfx
     (import ../programs/sway { inherit config lib pkgs pkgs-unstable; })
@@ -31,7 +36,6 @@
         ublock-origin
         darkreader
         firefox-color
-        vencord-web
       ];
     })
     (import ../programs/spicetify { inherit config inputs pkgs; })
@@ -86,33 +90,39 @@
 
     packages = with pkgs; [
       # apps
-      helix
       playerctl
       anki-bin
-      webcord-vencord
       pkgs-unstable.logseq
       pulsemixer
       ripgrep
       btop
+      pkgs-unstable.zellij
       pkgs-unstable.wlsunset
       swaylock
       tofi
       fzf
+      nnn
       swayidle
       pkgs-unstable.vscodium
       sway-contrib.grimshot
+      speechd
+      chromium
 
       # dev
-      clang
-      clang-tools
-      lldb
-      valgrind
+      # clang
+      # clang-tools
+      # bear
+      # lldb
+      # ninja
+      # valgrind
       nil
       rust-analyzer
       nixpkgs-fmt
       rustfmt
+      clippy
       rustc
       cargo
+      # meson
     ];
 
     pointerCursor = {

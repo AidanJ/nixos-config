@@ -48,6 +48,8 @@
       driSupport = true;
       extraPackages = with pkgs; [
         vaapiVdpau
+        rocm-opencl-icd
+        rocm-opencl-runtime
       ];
     };
   };

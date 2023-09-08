@@ -18,6 +18,9 @@
     nur.url = "github:nix-community/NUR";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    # NOTE: using fork for a temp solution which supports pgtk
+    nix-doom-emacs.url = "github:librephoenix/nix-doom-emacs?ref=pgtk-patch";
+    # nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
     # Zsh related
     zsh-completions = {

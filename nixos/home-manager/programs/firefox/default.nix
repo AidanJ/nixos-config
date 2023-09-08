@@ -14,8 +14,8 @@ in
 
       settings = {
         "general.smoothScroll" = true;
-        "general.smoothScroll.mouseWheel.durationMaxMS" = 500;
-        "general.smoothScroll.mouseWheel.durationMinMS" = 200;
+        # "general.smoothScroll.mouseWheel.durationMaxMS" = 500;
+        # "general.smoothScroll.mouseWheel.durationMinMS" = 200;
 
         # For firefox-gnome-theme
         "svg.context-properties.content.enabled" = true;
