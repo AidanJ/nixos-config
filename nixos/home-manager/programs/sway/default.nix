@@ -11,7 +11,7 @@ in
       startup = [
       	{ command = "foot -s"; }
         { command = "wlsunset -o HDMI-A-1 -g 0.8 -s 23:30"; }
-      	{ command = "waybar"; }
+      	# { command = "waybar"; }
         # exec gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Classic'
         # exec gsettings set org.gnome.desktop.interface cursor-size 24
       ];
@@ -114,8 +114,17 @@ in
       shadows enable
       shadow_blur_radius 5
       corner_radius 5
+
+      bar {
+        swaybar_command waybar
+        position top
+        hidden_state hide
+        mode hide
+        modifier Mod4
+      }
     '';
-    # seat seat0 xcursor_theme Bibata-Modern-Classic 24
+# https://github.com/Alexays/Waybar/pull/1244
+# seat seat0 xcursor_theme Bibata-Modern-Classic 24
 
     wrapperFeatures.gtk = true;
   };
